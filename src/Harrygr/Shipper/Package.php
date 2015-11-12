@@ -3,6 +3,8 @@
 namespace Harrygr\Shipper;
 
 use Harrygr\Shipper\PackageItem;
+use Harrygr\Shipper\Weight\Unit;
+use Harrygr\Shipper\Weight\Weight;
 
 class Package implements \Countable {
     /**
@@ -46,4 +48,18 @@ class Package implements \Countable {
         });
     }
 
+    /**
+     * Get the total weight for a package of items
+     * @param  Unit|string $unit The unit the weight should be in
+     * @return Weight       
+     */
+    public function weight($unit = 'kg')
+    {
+        $total_weight = new Weight(0, $unit);
+
+        foreach ($this->items as $item) {
+            $total_weight->add($item->weight());
+        }
+        return $total_weight;
+    }
 }

@@ -34,4 +34,15 @@ class WeightTest extends PHPUnit_Framework_TestCase
        $this->assertInstanceOf(Weight::class, $weight_in_kg);
        $this->assertInstanceOf(Unit::class, $weight_in_kg->unit());
    } 
+
+   /** @test **/
+   public function it_allows_adding_one_weight_to_another()
+   {
+       $weight_1 = new Weight(500, 'g');
+       $weight_2 = new Weight(2, 'kg');
+
+       $weight_1->add($weight_2);
+       $this->assertEquals(2500, $weight_1->value());
+
+   }
 }

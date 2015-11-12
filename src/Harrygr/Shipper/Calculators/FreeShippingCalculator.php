@@ -8,7 +8,11 @@ use Harrygr\Shipper\Package;
 
 class FreeShippingCalculator implements CalculatorContract {
 
-    public function getRate(Location $origin = null, Location $destination = null, Package $package = null)
+    public function getRate(
+        Location $origin = null, 
+        Location $destination = null, 
+        Package $package = null
+    )
     {
         return 0;
     }

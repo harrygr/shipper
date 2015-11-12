@@ -2,6 +2,8 @@
 
 use Harrygr\Shipper\Package;
 use Harrygr\Shipper\PackageItem;
+use Harrygr\Shipper\Weight\Unit;
+use Harrygr\Shipper\Weight\Weight;
 
 class PackageTest extends PHPUnit_Framework_TestCase {
 
@@ -43,5 +45,18 @@ class PackageTest extends PHPUnit_Framework_TestCase {
 
         $package = new Package($items);
         $this->assertEquals(45, $package->value());
+    }
+
+    /** @test **/
+    public function it_calculates_the_total_package_weight()
+    {
+        $items = [
+            new PackageItem(['weight' => new Weight(2000, 'g')]),
+            new PackageItem(['weight' => new Weight(1, 'kg')]),
+        ];
+
+        $package = new Package($items);
+        
+        $this->assertEquals(3, $package->weight(new Unit('kg'))->value());
     }
 }

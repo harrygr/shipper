@@ -6,10 +6,10 @@ class Weight {
     private $value; 
     private $unit;
 
-    public function __construct($value, Unit $unit) 
+    public function __construct($value, $unit) 
     {
         $this->value = $value; 
-        $this->unit = $unit; 
+        $this->setUnit($unit);
     }
     
     public function value() 
@@ -20,6 +20,15 @@ class Weight {
     public function unit() 
     { 
         return $this->unit; 
+    }
+
+    public function setUnit($unit)
+    {
+        if (!$unit instanceof Unit) { 
+            $unit = new Unit($unit); 
+        } 
+        $this->unit = $unit;
+        return $this;
     } 
 
     public function in($unit) 
@@ -33,6 +42,11 @@ class Weight {
 
     public function toUnit($unit) { 
         return $this->in($unit); 
+    }
+
+    public function add(Weight $weight)
+    {
+        $this->value += $weight->in($this->unit)->value();
     }
 
     protected function convertValueToUnit(Unit $unit) 
