@@ -1,0 +1,25 @@
+{
+    "name":"harrygr/shipper",
+    "description":"A shipping library",
+    "require":{
+        "php":">=5.4.0"
+    },
+    "require-dev":{
+        "phpunit/phpunit":"~4.0"
+    },
+    "autoload":{
+        "psr-4":{
+            "Harrygr\\Shipper\\":"src/Harrygr/Shipper"
+        }
+    },
+    "license":"MIT",
+    "authors":[
+        {
+            "name":"harrygr",
+            "email":"harrygrumbar@hotmail.com"
+        }
+    ],
+    "require":{
+
+    }
+}
