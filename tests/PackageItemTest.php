@@ -11,7 +11,7 @@ class PackageItemTest extends PHPUnit_Framework_TestCase
     {
         $attributes = [
             'weight' => new Weight(850, new Unit('g')),
-            'value' => 75,
+            'value'  => 75,
         ];
         $item = new PackageItem($attributes);
 

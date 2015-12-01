@@ -4,7 +4,8 @@ namespace Harrygr\Shipper;
 
 use Harrygr\Shipper\Weight\Weight;
 
-class PackageItem {
+class PackageItem
+{
     protected $weight;
     protected $value;
 
@@ -12,20 +13,21 @@ class PackageItem {
     {
         $this->weight = isset($attributes['weight']) ? $attributes['weight'] : null;
         $this->value = isset($attributes['value']) ? $attributes['value'] : null;
-
     }
 
     /**
-     * Set the weight of a package item
+     * Set the weight of a package item.
+     *
      * @param Weight $weight
      */
-    function setWeight(Weight $weight)
+    public function setWeight(Weight $weight)
     {
         $this->weight = $weight;
     }
 
     /**
-     * Get the weight of a package item
+     * Get the weight of a package item.
+     *
      * @param Weight $weight
      */
     public function weight()
@@ -34,21 +36,22 @@ class PackageItem {
     }
 
     /**
-     * Set the weight of a package item
+     * Set the weight of a package item.
+     *
      * @param $value
      */
-    function setvalue($value)
+    public function setvalue($value)
     {
         $this->value = $value;
     }
 
     /**
-     * Get the value of a package item
+     * Get the value of a package item.
+     *
      * @param value $value
      */
     public function value()
     {
         return $this->value;
     }
-
 }
