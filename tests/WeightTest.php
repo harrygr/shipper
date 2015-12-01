@@ -43,6 +43,13 @@ class WeightTest extends PHPUnit_Framework_TestCase
 
        $weight_1->add($weight_2);
        $this->assertEquals(2500, $weight_1->value());
+   }
 
+   /** @test **/
+   public function it_gives_string_representation_of_the_weight()
+   {
+       $weight = new Weight(500, new Unit('grams'));
+
+       $this->assertEquals('500g', (string) $weight);
    }
 }

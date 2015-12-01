@@ -3,26 +3,50 @@ namespace Harrygr\Shipper\Weight;
 
 class Weight { 
 
-    private $value; 
+    /**
+     * @var integer|string
+     */
+    private $value;
+
+    /**
+     * @var Unit
+     */
     private $unit;
 
+    /**
+     * Make a new Weight instance
+     * @param integer|float $value
+     * @param Unit|string $unit 
+     */
     public function __construct($value, $unit) 
     {
         $this->value = $value; 
         $this->setUnit($unit);
     }
     
+    /**
+     * Get the numeric value of the weight
+     * @return integer|float
+     */
     public function value() 
     { 
         return $this->value; 
     }
 
+    /**
+     * Get the unit of the weight
+     * @return Unit
+     */
     public function unit() 
     { 
         return $this->unit; 
     }
 
-    public function setUnit($unit)
+    /**
+     * Set the unit of the weight
+     * @param  Unit|string $unit
+     */
+    protected function setUnit($unit)
     {
         if (!$unit instanceof Unit) { 
             $unit = new Unit($unit); 
@@ -31,6 +55,11 @@ class Weight {
         return $this;
     } 
 
+    /**
+     * Convert the weight to a different unit
+     * @param  Unit|string $unit
+     * @return Weight
+     */
     public function in($unit) 
     { 
         if (!$unit instanceof Unit) { 
@@ -40,13 +69,23 @@ class Weight {
         return new static($value, $unit); 
     }
 
+    /**
+     * Alias of in()
+     * @param  Unit|string $unit
+     * @return Weight
+     */
     public function toUnit($unit) { 
         return $this->in($unit); 
     }
 
+    /**
+     * Add a weight to the current weight
+     * @param Weight $weight
+     */
     public function add(Weight $weight)
     {
         $this->value += $weight->in($this->unit)->value();
+        return $this;
     }
 
     protected function convertValueToUnit(Unit $unit) 
@@ -57,5 +96,10 @@ class Weight {
         $value = $this->value * $this->unit->value(); 
         //Convert the base value to the new unit 
         return $value / $unit->value(); 
-    } 
+    }
+
+    public function __toString()
+     {
+         return sprintf("%s%s", $this->value, $this->unit);
+     } 
 }
