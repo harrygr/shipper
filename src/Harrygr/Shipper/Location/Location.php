@@ -2,6 +2,6 @@
 
 namespace Harrygr\Shipper\Location;
 
-class Location {
-    
+class Location
+{
 }

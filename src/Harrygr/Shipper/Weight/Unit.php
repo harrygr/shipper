@@ -13,23 +13,23 @@ class Unit
 
     public static $units = [
     'g'  => [
-        'long_name' => 'gram', 
-        'value' => self::GRAM,
+        'long_name' => 'gram',
+        'value'     => self::GRAM,
         'aliases'   => ['g', 'gram', 'grams', 'grammes'],
         ],
     'kg' => [
-        'long_name' => 'kilogram', 
-        'value' => self::KILOGRAM,
+        'long_name' => 'kilogram',
+        'value'     => self::KILOGRAM,
         'aliases'   => ['kg', 'kilogram', 'kilograms', 'kilogrammes'],
         ],
     'oz' => [
-        'long_name' => 'ounce', 
-        'value' => self::OUNCE,
+        'long_name' => 'ounce',
+        'value'     => self::OUNCE,
         'aliases'   => ['oz', 'ounce', 'ounces'],
         ],
     'lb' => [
-        'long_name' => 'pound', 
-        'value' => self::POUND,
+        'long_name' => 'pound',
+        'value'     => self::POUND,
         'aliases'   => ['lb', 'lbs', 'pound', 'pounds'],
         ],
     ];

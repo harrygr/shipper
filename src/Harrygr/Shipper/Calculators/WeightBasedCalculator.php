@@ -7,8 +7,8 @@ use Harrygr\Shipper\Location\Location;
 use Harrygr\Shipper\Package;
 use Harrygr\Shipper\Weight\Unit;
 
-class WeightBasedCalculator implements CalculatorContract {
-
+class WeightBasedCalculator implements CalculatorContract
+{
     private $base_rate;
     private $weight_rate;
 
@@ -36,12 +36,12 @@ class WeightBasedCalculator implements CalculatorContract {
         }
         $this->unit = $unit;
     }
+
     public function getRate(
-        Location $origin = null, 
-        Location $destination = null, 
+        Location $origin = null,
+        Location $destination = null,
         Package $package = null
-    )
-    {
+    ) {
         $weight = $package->weight();
 
         $weight_cost = $weight->in($this->unit)->value() * $this->weight_rate;

@@ -12,26 +12,25 @@ class WeightBasedCalculatorTest extends PHPUnit_Framework_TestCase
     public function it_calculates_the_rate_for_a_single_item()
     {
         $calculator = new WeightBasedCalculator([
-            'base_rate' => 5,
+            'base_rate'   => 5,
             'weight_rate' => 2,
-            'unit' => 'kg'
+            'unit'        => 'kg',
             ]);
 
         $package = new Package([
-            new PackageItem(['weight' => new Weight(2000, new Unit('g'))])
+            new PackageItem(['weight' => new Weight(2000, new Unit('g'))]),
             ]);
 
         $this->assertEquals(9, $calculator->getRate(null, null, $package));
-
     }
 
     /** @test **/
     public function it_calculates_the_rate_for_multiple_items()
     {
         $calculator = new WeightBasedCalculator([
-            'base_rate' => 5,
+            'base_rate'   => 5,
             'weight_rate' => 2,
-            'unit' => 'kg'
+            'unit'        => 'kg',
             ]);
 
         $package = new Package([
