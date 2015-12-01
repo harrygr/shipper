@@ -11,6 +11,11 @@ class WeightBasedCalculator implements CalculatorContract {
 
     private $base_rate;
     private $weight_rate;
+
+    /**
+     * The unit for which the weight rate applies
+     * @var \Harrygr\Shipper\Weight\Unit
+     */
     private $unit;
 
     public function __construct($attributes = [])
