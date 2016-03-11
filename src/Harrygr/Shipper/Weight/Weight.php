@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Harrygr\Shipper\Weight;
 
 class Weight
@@ -104,10 +103,10 @@ class Weight
     }
 
     /**
-     * Convert the value from the current instance's unit to the unit passed
-     *         
-     * @param  Unit  $unit The unit to convert to
-     * 
+     * Convert the value from the current instance's unit to the unit passed.
+     *
+     * @param Unit $unit The unit to convert to
+     *
      * @return float
      */
     protected function convertValueToUnit(Unit $unit)
