@@ -103,6 +103,13 @@ class Weight
         return $this;
     }
 
+    /**
+     * Convert the value from the current instance's unit to the unit passed
+     *         
+     * @param  Unit  $unit The unit to convert to
+     * 
+     * @return float
+     */
     protected function convertValueToUnit(Unit $unit)
     {
         // 5kg converted to g will go 5 * 1000 = 5000; 5000 / 1 = 5000g

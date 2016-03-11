@@ -27,7 +27,7 @@ use Harrygr\Shipper\Calculators\FlatRateCalculator;
 $free_shipping_calculator = new FreeShippingCalculator;
 $rate = $free_shipping_calculator->getRate(); // 0
 
-$flat_rate_calculator = new FlatRateCalculator('rate' => 15);
+$flat_rate_calculator = new FlatRateCalculator(['rate' => 15]);
 $rate = $flat_rate_calculator->getRate(); // 15
 ```
 

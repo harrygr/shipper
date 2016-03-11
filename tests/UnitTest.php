@@ -9,10 +9,15 @@ class UnitTest extends PHPUnit_Framework_TestCase
     {
         $unit = new Unit('kg');
         $this->assertEquals('kg', (string) $unit);
+
         $unit = new Unit('gram');
         $this->assertEquals('g', (string) $unit);
+
         $unit = new Unit('grams');
         $this->assertEquals('g', (string) $unit);
+
+        $unit = new Unit('Kilograms');
+        $this->assertEquals('kg', (string) $unit);
     }
 
     /** @test **/

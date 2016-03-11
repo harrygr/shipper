@@ -9,15 +9,31 @@ use Harrygr\Shipper\Weight\Unit;
 
 class WeightBasedCalculator implements CalculatorContract
 {
+    /**
+     * The base (minimum) cost of shipping
+     * @var float
+     */
     private $base_rate;
+
+    /**
+     * The cost per unit weight
+     * 
+     * @var float
+     */
     private $weight_rate;
 
     /**
      * The unit for which the weight rate applies
+     * 
      * @var \Harrygr\Shipper\Weight\Unit
      */
     private $unit;
 
+    /**
+     * Create a new Weight Based Shipping Instance
+     * 
+     * @param array $attributes
+     */
     public function __construct($attributes = [])
     {
         if (!isset($attributes['weight_rate'])) {
@@ -29,6 +45,11 @@ class WeightBasedCalculator implements CalculatorContract
         $this->setUnit(isset($attributes['unit']) ? $attributes['unit'] : 'kg');
     }
 
+    /**
+     * Set the unit for which the weight rate applies
+     * 
+     * @param \Harrygr\Shipper\Weight\Unit|string $unit [description]
+     */
     public function setUnit($unit)
     {
         if (!$unit instanceof Unit) {
@@ -37,6 +58,15 @@ class WeightBasedCalculator implements CalculatorContract
         $this->unit = $unit;
     }
 
+    /**
+     * Get the current rate of shipping
+     * 
+     * @param  Location|null $origin      The origin of the package
+     * @param  Location|null $destination The destination of the package
+     * @param  Package|null  $package     The package being sent
+     * 
+     * @return float                      The shipping rate
+     */
     public function getRate(
         Location $origin = null,
         Location $destination = null,
