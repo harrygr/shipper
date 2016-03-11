@@ -35,8 +35,8 @@ class Unit
     ];
 
     /**
-     * Create a new Unit instance
-     * 
+     * Create a new Unit instance.
+     *
      * @param string $unit The unit of the instance
      */
     public function __construct($unit)
@@ -45,9 +45,10 @@ class Unit
     }
 
     /**
-     * Derive the unit from a string
-     * @param  string $original_unit A string representation of a unit
-     * 
+     * Derive the unit from a string.
+     *
+     * @param string $original_unit A string representation of a unit
+     *
      * @return string
      */
     private function getUnitFromString($original_unit)
@@ -64,8 +65,8 @@ class Unit
     }
 
     /**
-     * Get the converstion value of the unit
-     * 
+     * Get the converstion value of the unit.
+     *
      * @return float
      */
     public function value()
@@ -74,8 +75,8 @@ class Unit
     }
 
     /**
-     * Cast the instance to a string
-     *     
+     * Cast the instance to a string.
+     *
      * @return string
      */
     public function __toString()
